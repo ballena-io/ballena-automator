@@ -1,0 +1,16 @@
+name: Cron Test
+
+on:
+  schedule:
+    - cron: '*/15 * * * *' # every 15 minutes
+
+jobs:
+  test-cron-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Invoke test
+        env:
+          APP_SECRET: ${{ secrets.APP_SECRET }}
+          APP_BASE_URL: ${{ secrets.BASE_URL }}
+        run: curl $APP_BASE_URL/cronTest -H "Authorization:$APP_SECRET"
