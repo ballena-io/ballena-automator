@@ -11,6 +11,6 @@ jobs:
     steps:
       - name: Invoke test
         env:
-          TEST_APP_SECRET: ${{ secrets.TEST_APP_SECRET }}
+          APP_SECRET: ${{ secrets.APP_SECRET }}
           APP_BASE_URL: ${{ secrets.BASE_URL }}
-        run: curl $APP_BASE_URL/cronTest -H "Authorization:$TEST_APP_SECRET"
+        run: curl $APP_BASE_URL/cronTest -H "Authorization:$APP_SECRET"
