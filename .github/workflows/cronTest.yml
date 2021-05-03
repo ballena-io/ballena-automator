@@ -3,6 +3,7 @@ name: Cron Test
 on:
   schedule:
     - cron: '*/15 * * * *' # every 15 minutes
+  workflow_dispatch:
 
 jobs:
   test-cron-job:
@@ -13,4 +14,5 @@ jobs:
         env:
           APP_SECRET: ${{ secrets.APP_SECRET }}
           APP_BASE_URL: ${{ secrets.BASE_URL }}
-        run: curl $APP_BASE_URL/cronTest -H "Authorization:$APP_SECRET"
+          JOB_ID: ${{ github.job }}
+        run: curl https://automator.ballena.io/cronTest -H "Authorization:$APP_SECRET"
