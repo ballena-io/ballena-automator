@@ -14,5 +14,4 @@ jobs:
         env:
           APP_SECRET: ${{ secrets.APP_SECRET }}
           APP_BASE_URL: ${{ secrets.BASE_URL }}
-          JOB_ID: ${{ github.job }}
-        run: curl https://automator.ballena.io/cronTest -H "Authorization:$APP_SECRET"
+        run: curl -I ${{ secrets.BASE_URL }}/cronTest -H "Authorization:${{ secrets.APP_SECRET }}"
