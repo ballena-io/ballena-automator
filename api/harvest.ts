@@ -15,7 +15,6 @@ export const harvest = async (
   const wallet = new ethers.Wallet(getAppWalletPK(), provider)
   const strat = new ethers.Contract(address, strategyABI, wallet)
   const tx = await strat.harvest()
-  console.log(tx)
   return {
     time: new Date().getTime(),
     chainId,

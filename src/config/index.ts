@@ -10,8 +10,8 @@ export function getAppSecret(): string | undefined {
   return appConfig.secret
 }
 
-export function getAppWalletPK(): string | undefined {
-  return appConfig.walletPK
+export function getAppWalletPK(): string {
+  return appConfig.walletPK ? appConfig.walletPK : ''
 }
 
 export { getNodeUrl, strategyABI }
