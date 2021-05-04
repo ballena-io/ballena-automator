@@ -1,0 +1,16 @@
+name: Testnet harvest vault 3
+
+on:
+  schedule:
+    - cron: '20 9/8 * * *' # on minute 20 every 8 hours from hour 9
+
+jobs:
+  test-cron-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Invoke testnet harvest on vault 3
+        env:
+          APP_SECRET: ${{ secrets.APP_SECRET }}
+          APP_BASE_URL: ${{ secrets.BASE_URL }}
+        run: curl -is $APP_BASE_URL/harvest/97/0xf024f5a36DE3Ea4e413DD7B515639127Fc0906b2 -H "Authorization:$APP_SECRET"

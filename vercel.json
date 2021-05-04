@@ -3,6 +3,10 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/harvest/:chainId/:address",
+      "destination": "/api/harvest"
+    },
+    {
       "source": "/:match*",
       "destination": "/api/:match*"
     }
