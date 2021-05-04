@@ -2,7 +2,7 @@ name: Testnet harvest vault 1
 
 on:
   schedule:
-    - cron: '10 9/8 * * *' # on minute 10 every 8 hours from hour 9
+    - cron: '10 14/8 * * *' # on minute 10 every 8 hours from hour 14
 
 jobs:
   test-cron-job:
