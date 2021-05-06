@@ -6,16 +6,23 @@ export const harvest = async (
   chainId: string,
   address: string,
 ): Promise<{
+  status: number
   time?: number
   chainId?: string
   address?: string
   tx?: string
 }> => {
   const provider = new ethers.providers.JsonRpcProvider(getNodeUrl(chainId))
-  const wallet = new ethers.Wallet(getAppWalletPK(), provider)
+  const walletKey = getAppWalletPK()
+  if (walletKey === '')
+    return {
+      status: 501,
+    }
+  const wallet = new ethers.Wallet(walletKey, provider)
   const strat = new ethers.Contract(address, strategyABI, wallet)
   const tx = await strat.harvest()
   return {
+    status: 200,
     time: new Date().getTime(),
     chainId,
     address,
@@ -39,7 +46,7 @@ export default async (req: VercelRequest, res: VercelResponse): Promise<void> =>
     // Make process and get return data
     const data = await harvest(chainId, address)
     // Send data and end connection
-    res.status(200).send(data).end()
+    res.status(data.status).send(data).end()
   }
   // Unauthorized
   return res.status(401).end()
