@@ -3,6 +3,7 @@ name: Testnet harvest vault 0
 on:
   schedule:
     - cron: '5 14/8 * * *' # on minute 5 every 8 hours from hour 14
+  workflow_dispatch:
 
 jobs:
   test-cron-job:
