@@ -14,4 +14,4 @@ jobs:
         env:
           APP_SECRET: ${{ secrets.APP_SECRET }}
           APP_BASE_URL: ${{ secrets.BASE_URL }}
-        run: curl -if $APP_BASE_URL/harvest/97/0x1825EcFe424434320D4bE0c64fE20563bAe42d3f -H "Authorization:$APP_SECRET"
+        run: curl -if $APP_BASE_URL/harvest/97/0x1Cbd26cBf1e78bd84E365dF88C4fb0b8f0F49A5e -H "Authorization:$APP_SECRET"
