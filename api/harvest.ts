@@ -1,5 +1,5 @@
 import { VercelRequest, VercelResponse } from '@vercel/node'
-import { ethers } from 'ethers'
+import { BigNumber, ethers } from 'ethers'
 import { getAppSecret, getAppWalletPK, getNodeUrl, strategyABI } from '../src/config'
 
 export const harvest = async (
@@ -11,6 +11,7 @@ export const harvest = async (
   chainId?: string
   address?: string
   tx?: string
+  earned?: string
 }> => {
   const provider = new ethers.providers.JsonRpcProvider(getNodeUrl(chainId))
   const walletKey = getAppWalletPK()
@@ -20,13 +21,26 @@ export const harvest = async (
     }
   const wallet = new ethers.Wallet(walletKey, provider)
   const strat = new ethers.Contract(address, strategyABI, wallet)
-  const tx = await strat.harvest()
+  const min: BigNumber = await strat.minEarnedToReinvest()
+  const pending: BigNumber = await strat.pendingEarnedToken()
+  if (pending.gte(min)) {
+    // Call harvest
+    const tx = await strat.harvest()
+    return {
+      status: 200,
+      time: new Date().getTime(),
+      chainId,
+      address,
+      tx: tx.hash as string,
+    }
+  }
+  // Skip harvest call
   return {
     status: 200,
     time: new Date().getTime(),
     chainId,
     address,
-    tx: tx.hash as string,
+    earned: `${pending.toString} / ${min.toString}`,
   }
 }
 
