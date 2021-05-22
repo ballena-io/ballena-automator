@@ -40,7 +40,7 @@ export const harvest = async (
     time: new Date().getTime(),
     chainId,
     address,
-    earned: `${pending.toString} / ${min.toString}`,
+    earned: `${pending.toString()}/${min.toString()}`,
   }
 }
 
