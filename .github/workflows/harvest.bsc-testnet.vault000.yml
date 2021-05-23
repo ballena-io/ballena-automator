@@ -2,7 +2,7 @@ name: Testnet harvest vault 0
 
 on:
   schedule:
-    - cron: '5 06,12,18,00 * * *' # on minute 5 every 6 hours from hour 06
+    - cron: '5 */3 * * *' # at minute 5 past every 3rd hour
   workflow_dispatch:
 
 jobs:
@@ -14,4 +14,4 @@ jobs:
         env:
           APP_SECRET: ${{ secrets.APP_SECRET }}
           APP_BASE_URL: ${{ secrets.BASE_URL }}
-        run: curl -if $APP_BASE_URL/harvest/97/0x671C8B782a2A5E11DD6df4504585C8125254403b -H "Authorization:$APP_SECRET"
+        run: curl -if $APP_BASE_URL/harvest/97/0xD413Fb9E684bAFEE48e7BBA7A4F3868d4738A3eD -H "Authorization:$APP_SECRET"
