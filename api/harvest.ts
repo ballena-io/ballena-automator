@@ -21,26 +21,14 @@ export const harvest = async (
     }
   const wallet = new ethers.Wallet(walletKey, provider)
   const strat = new ethers.Contract(address, strategyABI, wallet)
-  const min: BigNumber = await strat.minEarnedToReinvest()
-  const pending: BigNumber = await strat.pendingEarnedToken()
-  if (pending.gte(min)) {
-    // Call harvest
-    const tx = await strat.harvest()
-    return {
-      status: 200,
-      time: new Date().getTime(),
-      chainId,
-      address,
-      tx: tx.hash as string,
-    }
-  }
-  // Skip harvest call
+  // Call harvest
+  const tx = await strat.harvest()
   return {
     status: 200,
     time: new Date().getTime(),
     chainId,
     address,
-    earned: `${pending.toString()}/${min.toString()}`,
+    tx: tx.hash as string,
   }
 }
 
