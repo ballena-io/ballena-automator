@@ -3,7 +3,7 @@
   "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/harvest/:chainId/:address",
+      "source": "/harvest/:chainId/:earnedAddress/:address/:min",
       "destination": "/api/harvest"
     },
     {

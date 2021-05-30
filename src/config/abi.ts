@@ -3,3 +3,5 @@ export const strategyABI = [
   'function pendingEarnedToken() view returns (uint256)',
   'function harvest()',
 ]
+
+export const erc20ABI = ['function balanceOf(address account) view returns (uint256)']
