@@ -1,4 +1,4 @@
-name: Testnet mainnet vault 0
+name: Mainnet harvest vault 0
 
 on:
   schedule:
@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Invoke mainnet net harvest on vault 0
+      - name: Invoke mainnet harvest on vault 0
         env:
           APP_SECRET: ${{ secrets.APP_SECRET }}
           APP_BASE_URL: ${{ secrets.BASE_URL }}
-        run: curl -if $APP_BASE_URL/harvest/56/0x84a293347f9F3B1dA6bD061e67E857677F5410e5 -H "Authorization:$APP_SECRET"
+        run: curl -if $APP_BASE_URL/harvest/56/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82/0x84a293347f9F3B1dA6bD061e67E857677F5410e5/10 -H "Authorization:$APP_SECRET"

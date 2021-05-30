@@ -1,5 +1,5 @@
 import { getNodeUrl } from './chain'
-import { strategyABI } from './abi'
+import { erc20ABI, strategyABI } from './abi'
 
 const appConfig = {
   secret: process.env.APP_SECRET,
@@ -14,4 +14,4 @@ export function getAppWalletPK(): string {
   return appConfig.walletPK ? appConfig.walletPK : ''
 }
 
-export { getNodeUrl, strategyABI }
+export { getNodeUrl, erc20ABI, strategyABI }
