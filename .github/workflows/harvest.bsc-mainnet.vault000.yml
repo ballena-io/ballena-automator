@@ -2,8 +2,7 @@ name: Mainnet harvest vault 0
 
 on:
   schedule:
-    - cron: '0 */3 * 1 *' # at minute 0 past every 3rd hour (not active now)
-  workflow_dispatch:
+    - cron: '0 */3 * * *' # at minute 0 past every 3rd hour
 
 jobs:
   test-cron-job:
