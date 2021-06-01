@@ -1,0 +1,17 @@
+name: Testnet harvest vault 3
+
+on:
+  schedule:
+    - cron: '53 */3 * * *' # at minute 53 past every 3rd hour
+  workflow_dispatch:
+
+jobs:
+  test-cron-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Invoke testnet harvest on vault 3
+        env:
+          APP_SECRET: ${{ secrets.APP_SECRET }}
+          APP_BASE_URL: ${{ secrets.BASE_URL }}
+        run: curl -if $APP_BASE_URL/harvest/97/0xa6d6240e5d5b6232996d58b6b3c4555c824dea73/0x7D72DC5Cd7884Ea18bc81A13BaD5ef9e25a8d514/2 -H "Authorization:$APP_SECRET"
