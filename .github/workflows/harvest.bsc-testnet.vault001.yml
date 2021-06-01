@@ -2,7 +2,7 @@ name: Testnet harvest vault 1
 
 on:
   schedule:
-    - cron: '10 */3 * * *' # at minute 10 past every 3rd hour
+    - cron: '51 */3 * * *' # at minute 51 past every 3rd hour
   workflow_dispatch:
 
 jobs:
