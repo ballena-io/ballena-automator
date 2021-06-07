@@ -34,7 +34,7 @@ export const harvest = async (
   }
   if (total.gte(minimum)) {
     // Call harvest
-    const tx = await strat.harvest({ gasLimit: 975000 })
+    const tx = await strat.harvest({ gasLimit: 1250000 })
     return {
       status: 200,
       time: new Date().getTime(),
