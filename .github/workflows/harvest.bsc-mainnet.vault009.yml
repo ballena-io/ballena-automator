@@ -1,4 +1,4 @@
-name: Mainnet harvest vault 9
+name: Mainnet harvest ADA-BNB vault (9)
 
 on:
   schedule:
@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Invoke mainnet harvest on vault 9
+      - name: Invoke mainnet harvest on ADA-BNB vault (9)
         env:
           APP_SECRET: ${{ secrets.APP_SECRET }}
           APP_BASE_URL: ${{ secrets.BASE_URL }}
-        run: curl -if $APP_BASE_URL/harvest/56/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82/0x98905e8f1FedcF89e69bFB7641F3C14062BbC1b4/9 -H "Authorization:$APP_SECRET"
+        run: curl -if $APP_BASE_URL/harvest/56/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82/0x98905e8f1FedcF89e69bFB7641F3C14062BbC1b4/10 -H "Authorization:$APP_SECRET"

@@ -1,4 +1,4 @@
-name: Mainnet harvest vault 7
+name: Mainnet harvest TWT-BNB vault (7)
 
 on:
   schedule:
@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Invoke mainnet harvest on vault 7
+      - name: Invoke mainnet harvest on TWT-BNB vault (7)
         env:
           APP_SECRET: ${{ secrets.APP_SECRET }}
           APP_BASE_URL: ${{ secrets.BASE_URL }}
-        run: curl -if $APP_BASE_URL/harvest/56/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82/0x087a5afa858af7fc5e1ea6d613b86943a22aa241/9 -H "Authorization:$APP_SECRET"
+        run: curl -if $APP_BASE_URL/harvest/56/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82/0x087a5afa858af7fc5e1ea6d613b86943a22aa241/10 -H "Authorization:$APP_SECRET"

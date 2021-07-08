@@ -1,4 +1,4 @@
-name: Mainnet harvest vault 3
+name: Mainnet harvest VRT-BNB vault (3)
 
 on:
   schedule:
@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Invoke mainnet harvest on vault 3
+      - name: Invoke mainnet harvest on VRT-BNB vault (3)
         env:
           APP_SECRET: ${{ secrets.APP_SECRET }}
           APP_BASE_URL: ${{ secrets.BASE_URL }}
-        run: curl -if $APP_BASE_URL/harvest/56/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82/0xd1D8A8D9F29920CE65E6F11526e76b1EBA485aA9/9 -H "Authorization:$APP_SECRET"
+        run: curl -if $APP_BASE_URL/harvest/56/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82/0xd1D8A8D9F29920CE65E6F11526e76b1EBA485aA9/10 -H "Authorization:$APP_SECRET"

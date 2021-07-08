@@ -1,0 +1,16 @@
+name: Mainnet harvest CAKE vault (17)
+
+on:
+  schedule:
+    - cron: '34 */3 * * *' # at minute 34 past every 3rd hour
+
+jobs:
+  test-cron-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Invoke mainnet harvest on CAKE vault (17)
+        env:
+          APP_SECRET: ${{ secrets.APP_SECRET }}
+          APP_BASE_URL: ${{ secrets.BASE_URL }}
+        run: curl -if $APP_BASE_URL/harvest/56/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82/0x8bd237e94ce369f6d78c7bb08b90efc5c6f27a4f/10 -H "Authorization:$APP_SECRET"
