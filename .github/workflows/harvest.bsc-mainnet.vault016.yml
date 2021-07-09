@@ -1,4 +1,4 @@
-name: Mainnet harvest vault 16
+name: Mainnet harvest WELL-BUSD vault (16)
 
 on:
   schedule:
@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Invoke mainnet harvest on vault 16
+      - name: Invoke mainnet harvest on WELL-BUSD vault (16)
         env:
           APP_SECRET: ${{ secrets.APP_SECRET }}
           APP_BASE_URL: ${{ secrets.BASE_URL }}

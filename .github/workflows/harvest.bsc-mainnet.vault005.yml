@@ -1,4 +1,4 @@
-name: Mainnet harvest vault 5
+name: Mainnet harvest WATCH-BNB vault (5)
 
 on:
   schedule:
@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Invoke mainnet harvest on vault 5
+      - name: Invoke mainnet harvest on WATCH-BNB vault (5)
         env:
           APP_SECRET: ${{ secrets.APP_SECRET }}
           APP_BASE_URL: ${{ secrets.BASE_URL }}
-        run: curl -if $APP_BASE_URL/harvest/56/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82/0xdF82c1825Bc2bD7D82F739F8870b24c0e4663cce/9 -H "Authorization:$APP_SECRET"
+        run: curl -if $APP_BASE_URL/harvest/56/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82/0xdF82c1825Bc2bD7D82F739F8870b24c0e4663cce/10 -H "Authorization:$APP_SECRET"

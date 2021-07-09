@@ -1,4 +1,4 @@
-name: Mainnet harvest vault 8
+name: Mainnet harvest CAKE-BNB vault (8)
 
 on:
   schedule:
@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Invoke mainnet harvest on vault 8
+      - name: Invoke mainnet harvest on CAKE-BNB vault (8)
         env:
           APP_SECRET: ${{ secrets.APP_SECRET }}
           APP_BASE_URL: ${{ secrets.BASE_URL }}
-        run: curl -if $APP_BASE_URL/harvest/56/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82/0x3df547F2A7fE4B4CbC05cf9abAAd2Ac2bB8048ff/9 -H "Authorization:$APP_SECRET"
+        run: curl -if $APP_BASE_URL/harvest/56/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82/0x3df547F2A7fE4B4CbC05cf9abAAd2Ac2bB8048ff/10 -H "Authorization:$APP_SECRET"

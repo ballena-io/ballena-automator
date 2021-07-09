@@ -1,4 +1,4 @@
-name: Mainnet harvest vault 1
+name: Mainnet harvest INJ-BNB vault (1)
 
 on:
   schedule:
@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Invoke mainnet harvest on vault 1
+      - name: Invoke mainnet harvest on INJ-BNB vault (1)
         env:
           APP_SECRET: ${{ secrets.APP_SECRET }}
           APP_BASE_URL: ${{ secrets.BASE_URL }}
-        run: curl -if $APP_BASE_URL/harvest/56/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82/0x437c97d695A822D10223059099DCca9559754e2d/9 -H "Authorization:$APP_SECRET"
+        run: curl -if $APP_BASE_URL/harvest/56/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82/0x437c97d695A822D10223059099DCca9559754e2d/10 -H "Authorization:$APP_SECRET"

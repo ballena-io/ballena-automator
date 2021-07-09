@@ -1,0 +1,16 @@
+name: Mainnet harvest BUSD-BNB vault (18)
+
+on:
+  schedule:
+    - cron: '36 */3 * * *' # at minute 36 past every 3rd hour
+
+jobs:
+  test-cron-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Invoke mainnet harvest on BUSD-BNB vault (18)
+        env:
+          APP_SECRET: ${{ secrets.APP_SECRET }}
+          APP_BASE_URL: ${{ secrets.BASE_URL }}
+        run: curl -if $APP_BASE_URL/harvest/56/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82/0xf7947Cb3e30370CC46d643107437018A4276B629/10 -H "Authorization:$APP_SECRET"
