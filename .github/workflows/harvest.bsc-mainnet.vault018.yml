@@ -3,6 +3,7 @@ name: Mainnet harvest BUSD-BNB vault (18)
 on:
   schedule:
     - cron: '36 */3 * * *' # at minute 36 past every 3rd hour
+  workflow_dispatch:
 
 jobs:
   test-cron-job:
