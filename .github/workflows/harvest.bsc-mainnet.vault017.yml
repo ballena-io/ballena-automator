@@ -3,6 +3,7 @@ name: Mainnet harvest CAKE vault (17)
 on:
   schedule:
     - cron: '34 */3 * * *' # at minute 34 past every 3rd hour
+  workflow_dispatch:
 
 jobs:
   test-cron-job:
